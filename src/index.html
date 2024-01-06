@@ -3,12 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
+    <title>Image search</title>
     <script type="module" src="./index.js"></script>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .search-form {
+            max-width: 100%;
+            background: #0068ba;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+      }
+      .search-form input {
+        border: 3px solid #0068ba;
+        border-radius: 5px;
+        height: 50px;
+        line-height: normal;
+        color: #282828;
+        display: block;
+        box-sizing: border-box;
+        user-select: auto;
+        font-size: 16px;
+        padding: 0 6px;
+        padding-left: 12px;
+      }
+      .search-form input:focus{
+          border: 3px solid #013e6e;
+      }
+      .search-form button, .load-more {
+        display: inline-block;
+        outline: none;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 13px 23px;
+        border: 1px solid #013e6e;
+        transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+        background: #fff;
+        color: #013e6e; 
+      }
+      .search-form button:hover, .search-form button:focus, .load-more:hover, .load-more:focus {
+          border-color: #013e6e;
+          background: #f7f7f7;
+      }
+      .gallery {
+        padding: 10px 50px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
+        flex-wrap: wrap;
+        gap: 15px;
+        max-width: 100%;
+      }
+      .load-more {
+        margin-bottom: 20px;
+        margin-left: calc(50% - 100px);
+        width: 200px;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <form class="search-form" id="search-form">
+      <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
+      <button type="submit">Search</button>
+    </form>
+    <div class="gallery">
+      <!-- Картки зображень -->
+    </div>
+    <button type="button" class="load-more">Load more</button>
   </body>
 </html>
