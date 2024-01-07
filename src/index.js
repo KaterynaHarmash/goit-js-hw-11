@@ -25,15 +25,15 @@ function onSearchSubmit(event) {
     
     createGalleryMurkup();
 }
-function createGalleryMurkup() {
+async function createGalleryMurkup() {
     Notiflix.Loading.dots('Loading');
+    load.hidden(loadMoreBtn);
     pixabayApi.fetchImages().then(r => {
         if (r.totalHits === 0) {
             Notiflix.Loading.remove();
             return Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
         }
         if (r.hits.length === 0) {
-            load.hidden(loadMoreBtn);
             Notiflix.Loading.remove();
             return Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
         }
